@@ -2,8 +2,9 @@
 
 from modules.emoji_crypt import EmojiCrypt
 from modules.ai_crypt import AICrypt
-from modules.skipcode_crpyt import SkipCodeCrypt
+from modules.skipcode_crypt import SkipCodeCrypt
 
+# *** add agrs functionality for future scripting requirements ***
 
 def main():
     methods = {
@@ -43,7 +44,7 @@ def main():
             if choice == '1':
                 message = input("Enter text to encrypt: ")
                 password = input("Enter password: ")
-                encrypted_message = method.encrypt(text, password, compress = True)
+                encrypted_message = method.encrypt(message, password, compress = True)
                 print(f"Encrypted Text: {encrypted_message}")
 
             elif choice == '2':
