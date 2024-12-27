@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+VerumVeil.egg-info/PKG-INFO
+VerumVeil.egg-info/SOURCES.txt
+VerumVeil.egg-info/dependency_links.txt
+VerumVeil.egg-info/entry_points.txt
+VerumVeil.egg-info/requires.txt
+VerumVeil.egg-info/top_level.txt

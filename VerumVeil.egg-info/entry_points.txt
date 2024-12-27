@@ -1,0 +1,2 @@
+[console_scripts]
+verumveil = verumveil.main:main

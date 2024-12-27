@@ -1,4 +1,4 @@
-from Defs.openai import get_ai_response
+from utils.openai import get_ai_response
 
 class AICrypt() :
     def encrpyt(self, message, key) :

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "VerumVeil"
+version = "0.1.1"
+authors = [
+    { name = "Suraj Shaw", email = "shawsuraj.w@gmail.com" },
+]
+description = "A secure and flexible multi-method encryption tool"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "openai",
+    "google.generativeai"
+]
+[project.urls]
+    "Homepage" = "https://github.com/shawsuraj/VerumVeil"  # Replace with your github URL
+    "Bug Tracker" = "https://github.com/shawsuraj/VerumVeil/issues" # Replace with your github URL
+[project.scripts]
+    verumveil = "verumveil.main:main" # Main method which is the entrypoint of the program.
+[tool.setuptools.packages.find]
+    where = ["."]
+    include = ["verumveil*"]
