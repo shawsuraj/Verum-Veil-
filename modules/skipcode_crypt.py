@@ -8,13 +8,13 @@ logger = logging.getLogger(__name__)
 
 class SkipCodeCrypt() :
     
-    def _generate_reference_text(message) :
+    def _generate_reference_text(self, message) :
         prompt =  "Generate a natural sounding paragraph of about 50 words that is similar to this text: '{}'. The style should be descriptive.".format(message)
         reference_text = generate_text(prompt)
         logger.info("Reference text: {}".format(reference_text))
         return reference_text
     
-    def _verify_insertion_count(message: str, encrypted_message: str, k: int) -> bool:
+    def _verify_insertion_count(self, message: str, encrypted_message: str, k: int) -> bool:
         """Verifies that (key) number of words exists in between each pair of original words"""
 
         original_words = re.findall(r'\b\w+\b', message.lower())
@@ -49,10 +49,11 @@ class SkipCodeCrypt() :
             if len(words) <= 1 :
                 return " ".join(words)
             
-            encrypted_words = words[0] # Keeping the first word same as input message. 
+            encrypted_words = [words[0]] # Keeping the first word same as input message. 
 
             for i in range(len(words) - 1) :
                 # *** try using more words in promt to give a bit of context *** #
+                # *** Stops repeating owrds in the encrypted message *** #
                 prompt = "Generate {0} natural sounding words that fit grammatically and semantically between the words '{1}' and '{2}', based on the context: '{3}' so that the overall sentence makes sense,.".format(k, words[i], words[i+1], reference_text)
                 generated_words = generate_text(prompt)
                 generated_words_list = re.findall(r'\b\w+\b', generated_words)
