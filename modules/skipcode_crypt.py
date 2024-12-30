@@ -7,6 +7,8 @@ from utils.genai import generate_text
 logger = logging.getLogger(__name__)
 
 class SkipCodeCrypt() :
+    def __init__(self):
+        pass
     
     def _generate_reference_text(self, message) :
         prompt =  "Generate a natural sounding paragraph of about 50 words that is similar to this text: '{}'. The style should be descriptive.".format(message)

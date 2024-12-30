@@ -16,8 +16,8 @@ def main():
 
         while True:
             print("\nVerumVeil CLI Menu:")
-            print("1. Emoji Crypt")
-            print("2. AI Sentence Crypt")
+            print("1. AI Sentence Crypt")
+            print("2. Emoji Crypt")
             print("3. SkipCode Crypt")
             print("4. Exit")
 
@@ -44,7 +44,13 @@ def main():
                 choice = input("Enter your choice: ")
                 if choice == '1':
                     message = input("Enter text to encrypt: ")
-                    password = input("Enter password: ")
+                    
+                    if method_name == "SkipCode Encryption" : 
+                        password = input("Enter the no of words to skip : ")
+                        
+                    else  :
+                        password = input("Enter password: ")
+
                     encrypted_message = method.encrypt(message, password, compress = True)
                     print(f"Encrypted Text: {encrypted_message}")
 
